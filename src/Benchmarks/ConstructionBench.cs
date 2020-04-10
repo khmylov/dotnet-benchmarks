@@ -10,12 +10,23 @@ namespace Benchmarks
         private static readonly Delegate _compiledDelegateNoParams;
         private static readonly Delegate _compiledWithParam;
 
+        private static readonly Func<NoParams> _compiledFuncNoParams;
+        private static readonly Func<string, WithParams> _compiledFuncWithParams;
+
         static ConstructionBench()
         {
             _compiledDelegateNoParams = Expression.Lambda(Expression.New(typeof(NoParams))).Compile();
+            _compiledFuncNoParams = Expression.Lambda<Func<NoParams>>(Expression.New(typeof(NoParams))).Compile();
+
             var param = Expression.Parameter(typeof(string));
             _compiledWithParam = Expression
                 .Lambda(
+                    Expression.New(typeof(WithParams).GetConstructors().Single(), param),
+                    param)
+                .Compile();
+
+            _compiledFuncWithParams = Expression
+                .Lambda<Func<string, WithParams>>(
                     Expression.New(typeof(WithParams).GetConstructors().Single(), param),
                     param)
                 .Compile();
@@ -55,6 +66,18 @@ namespace Benchmarks
         public void CompiledDelegateWithParams()
         {
             _compiledWithParam.DynamicInvoke("hello");
+        }
+
+        [Benchmark]
+        public void CompiledFuncNoParams()
+        {
+            _compiledFuncNoParams();
+        }
+
+        [Benchmark]
+        public void CompiledFuncWithParams()
+        {
+            _compiledFuncWithParams("hello");
         }
 
         private class NoParams
