@@ -6,7 +6,7 @@ namespace Benchmarks
     {
         public static void Main(string[] args)
         {
-            BenchmarkRunner.Run<StringifyBench>();
+            BenchmarkRunner.Run<JsonBench>();
         }
     }
 }

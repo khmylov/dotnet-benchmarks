@@ -33,6 +33,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="App.Metrics, Version=3.2.0.0, Culture=neutral, PublicKeyToken=0d5193a913d1b812">
+      <HintPath>..\packages\App.Metrics.3.2.0\lib\net461\App.Metrics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="App.Metrics.Abstractions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=0d5193a913d1b812">
+      <HintPath>..\packages\App.Metrics.Abstractions.4.1.0\lib\net461\App.Metrics.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="App.Metrics.Concurrency, Version=2.0.1.0, Culture=neutral, PublicKeyToken=0d5193a913d1b812">
+      <HintPath>..\packages\App.Metrics.Concurrency.2.0.1\lib\net45\App.Metrics.Concurrency.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="App.Metrics.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=0d5193a913d1b812">
+      <HintPath>..\packages\App.Metrics.Core.4.1.0\lib\net461\App.Metrics.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="App.Metrics.Formatters.Ascii, Version=4.1.0.0, Culture=neutral, PublicKeyToken=0d5193a913d1b812">
+      <HintPath>..\packages\App.Metrics.Formatters.Ascii.4.1.0\lib\net461\App.Metrics.Formatters.Ascii.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="App.Metrics.Formatters.Json, Version=4.1.0.0, Culture=neutral, PublicKeyToken=0d5193a913d1b812">
+      <HintPath>..\packages\App.Metrics.Formatters.Json.4.1.0\lib\net461\App.Metrics.Formatters.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="App.Metrics.Formatters.Prometheus, Version=3.2.0.0, Culture=neutral, PublicKeyToken=0d5193a913d1b812">
+      <HintPath>..\packages\App.Metrics.Formatters.Prometheus.3.2.0\lib\netstandard2.0\App.Metrics.Formatters.Prometheus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="BenchmarkDotNet, Version=0.12.0.0, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4">
       <HintPath>..\packages\BenchmarkDotNet.0.12.0\lib\netstandard2.0\BenchmarkDotNet.dll</HintPath>
       <Private>True</Private>
@@ -57,6 +85,7 @@
       <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.2.10.0\lib\netstandard1.3\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
       <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.2.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
       <Private>True</Private>
@@ -68,6 +97,10 @@
     <Reference Include="mscorlib" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="protobuf-net, Version=2.4.0.0, Culture=neutral, PublicKeyToken=257b51d87d2e4d67">
+      <HintPath>..\packages\protobuf-net.2.4.0\lib\net40\protobuf-net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -84,6 +117,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
       <Private>True</Private>
@@ -160,6 +194,7 @@
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security.AccessControl, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\System.Security.AccessControl.4.5.0\lib\net461\System.Security.AccessControl.dll</HintPath>
       <Private>True</Private>
@@ -184,6 +219,7 @@
       <HintPath>..\packages\System.Security.Principal.Windows.4.5.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Text.Encoding.CodePages, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\System.Text.Encoding.CodePages.4.3.0\lib\net46\System.Text.Encoding.CodePages.dll</HintPath>
       <Private>True</Private>
@@ -228,8 +264,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppMetricsUpdateBench.cs" />
     <Compile Include="ConstructionBench.cs" />
     <Compile Include="HashesBench.cs" />
+    <Compile Include="JsonBench.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringifyBench.cs" />
