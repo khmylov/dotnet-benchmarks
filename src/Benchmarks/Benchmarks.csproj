@@ -270,6 +270,7 @@
     <Compile Include="HashesBench.cs" />
     <Compile Include="JsonBench.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="PropertiesBench.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringifyBench.cs" />
     <Compile Include="TextMatchBench.cs" />
