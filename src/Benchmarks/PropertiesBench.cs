@@ -39,7 +39,7 @@ namespace Benchmarks
             {
             }
 
-            public new T Value => (T) base.Value;
+            public new T Value => (T)base.Value;
         }
 
         public class DataTypeCasted<T>
@@ -51,7 +51,7 @@ namespace Benchmarks
                 _value = value;
             }
 
-            public T Value => (T) _value;
+            public T Value => (T)_value;
         }
 
         public class Data

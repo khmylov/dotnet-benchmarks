@@ -129,8 +129,8 @@ namespace Benchmarks
         [Benchmark]
         public void ToPrometheusSnapshot()
         {
-            var _ = _metrics.Snapshot.Get()
-                .GetPrometheusMetricsSnapshot(PrometheusFormatterConstants.MetricNameFormatter);
+            // var _ = _metrics.Snapshot.Get()
+            //     .GetPrometheusMetricsSnapshot(PrometheusFormatterConstants.MetricNameFormatter);
         }
     }
 

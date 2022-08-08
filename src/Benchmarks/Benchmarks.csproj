@@ -267,6 +267,8 @@
     <Compile Include="AppMetricsUpdateBench.cs" />
     <Compile Include="CompressionBench.cs" />
     <Compile Include="ConstructionBench.cs" />
+    <Compile Include="DynamicMethodInvokeBench.cs" />
+    <Compile Include="DynamicMethodInvokeConstructionBench.cs" />
     <Compile Include="HashesBench.cs" />
     <Compile Include="JsonBench.cs" />
     <Compile Include="Program.cs" />
