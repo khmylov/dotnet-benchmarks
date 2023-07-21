@@ -156,6 +156,50 @@ namespace Benchmarks
         |  AppMetricsHistogramDefaultTagsUpdate | 2,103.967 ns | 15.8054 ns | 14.0111 ns | 0.1831 |     - |     - |     961 B |
         |   AppMetricsHistogramCustomTagsUpdate | 2,432.847 ns | 24.0688 ns | 18.7914 ns | 0.2289 |     - |     - |    1214 B |
         |                           DateTimeNow |   280.445 ns |  2.3920 ns |  2.2375 ns |      - |     - |     - |         - |
+
+        App.Metrics@3.2.0
+
+        BenchmarkDotNet=v0.12.0, OS=Windows 10.0.19045
+        12th Gen Intel Core i9-12900H, 1 CPU, 20 logical and 14 physical cores
+          [Host]     : .NET Framework 4.8 (4.8.9166.0), X86 LegacyJIT
+          DefaultJob : .NET Framework 4.8 (4.8.9166.0), X86 LegacyJIT
+
+
+        |                                Method |         Mean |       Error |      StdDev |       Median |  Gen 0 | Gen 1 | Gen 2 | Allocated |
+        |-------------------------------------- |-------------:|------------:|------------:|-------------:|-------:|------:|------:|----------:|
+        |                 FieldCounterIncrement |     7.228 ns |   0.1922 ns |   0.5668 ns |     7.065 ns |      - |     - |     - |         - |
+        |            AppMetricsCounterIncrement |   824.306 ns |  20.0366 ns |  18.7422 ns |   818.536 ns | 0.1507 |     - |     - |     793 B |
+        | AppMetricsCounterDefaultTagsIncrement | 6,172.010 ns | 122.3848 ns | 307.0395 ns | 6,068.468 ns | 0.1678 |     - |     - |     909 B |
+        |  AppMetricsCounterCustomTagsIncrement | 1,353.708 ns |  26.6882 ns |  43.0965 ns | 1,355.863 ns | 0.2193 |     - |     - |    1158 B |
+        |             AppMetricsHistogramUpdate | 4,505.413 ns |  89.4708 ns | 234.1295 ns | 4,483.184 ns | 0.1602 |     - |     - |     857 B |
+        |  AppMetricsHistogramDefaultTagsUpdate | 2,399.743 ns |  47.0700 ns |  56.0335 ns | 2,403.202 ns | 0.1869 |     - |     - |     981 B |
+        |   AppMetricsHistogramCustomTagsUpdate | 2,649.671 ns |  51.2046 ns |  50.2898 ns | 2,652.806 ns | 0.2327 |     - |     - |    1230 B |
+        |                           DateTimeNow |   881.306 ns |  17.4753 ns |  23.9204 ns |   884.224 ns |      - |     - |     - |         - |
+
+        // * Warnings *
+        MultimodalDistribution
+          AppMetricsUpdateBench.FieldCounterIncrement: Default -> It seems that the distribution can have several modes (mValue = 2.9)
+
+
+        AppMetrics@4.3.0
+        BenchmarkDotNet=v0.12.0, OS=Windows 10.0.19045
+        12th Gen Intel Core i9-12900H, 1 CPU, 20 logical and 14 physical cores
+          [Host]     : .NET Framework 4.8 (4.8.9166.0), X86 LegacyJIT
+          DefaultJob : .NET Framework 4.8 (4.8.9166.0), X86 LegacyJIT
+
+
+        |                                Method |         Mean |       Error |      StdDev |       Median |  Gen 0 | Gen 1 | Gen 2 | Allocated |
+        |-------------------------------------- |-------------:|------------:|------------:|-------------:|-------:|------:|------:|----------:|
+        |                 FieldCounterIncrement |     6.853 ns |   0.1644 ns |   0.2511 ns |     6.750 ns |      - |     - |     - |         - |
+        |            AppMetricsCounterIncrement |   793.936 ns |  11.4325 ns |  10.6940 ns |   795.323 ns | 0.1507 |     - |     - |     793 B |
+        | AppMetricsCounterDefaultTagsIncrement |   969.459 ns |  19.8060 ns |  48.5844 ns |   948.124 ns | 0.1717 |     - |     - |     909 B |
+        |  AppMetricsCounterCustomTagsIncrement | 1,322.547 ns |  26.2951 ns |  34.1911 ns | 1,312.066 ns | 0.2193 |     - |     - |    1158 B |
+        |             AppMetricsHistogramUpdate | 2,231.271 ns |  44.0278 ns |  63.1433 ns | 2,225.777 ns | 0.1602 |     - |     - |     857 B |
+        |  AppMetricsHistogramDefaultTagsUpdate | 2,369.157 ns |  46.4328 ns |  72.2902 ns | 2,360.466 ns | 0.1869 |     - |     - |     981 B |
+        |   AppMetricsHistogramCustomTagsUpdate | 5,116.559 ns | 107.2437 ns | 223.8575 ns | 5,085.493 ns | 0.2289 |     - |     - |    1230 B |
+        |                           DateTimeNow |   880.402 ns |  12.5059 ns |  11.6980 ns |   875.783 ns |      - |     - |     - |         - |
+
+
         */
 
         private long _counter;
